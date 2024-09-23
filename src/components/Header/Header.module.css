@@ -1,0 +1,149 @@
+header {
+  position: fixed;
+  top: 0;
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    width: 100vw;
+    min-height: 80px;
+    background-color: var(--hg-grau);
+
+    .navbarLeft {
+      width: 30vw;
+      a {
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 1.3rem;
+        color: var(--text-hell);
+
+        i {
+          padding: 8px;
+          font-size: 2rem;
+        }
+      }
+      a:hover {
+        color: var(--color-orange);
+      }
+    }
+
+    .navbarCenter {
+      margin: 0 30px;
+      width: 50vw;
+      display: flex;
+      align-items: center;
+      flex-wrap: nowrap;
+      text-align: center;
+
+      .searchInput {
+        margin: 8px;
+        padding: 0 10px;
+        width: 80%;
+        height: 30px;
+        border: none;
+        border-radius: 5px;
+      }
+
+      i {
+        color: var(--text-hell);
+        font-size: 1.2rem;
+      }
+    }
+
+    .navbarCenter:hover .searchInput {
+      outline: 2px solid var(--color-orange);
+    }
+
+    .navbarCenter:hover i {
+      color: var(--color-orange);
+    }
+
+    .navbarRight {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-wrap: nowrap;
+
+      div {
+        display: flex;
+        align-items: end;
+        flex-wrap: nowrap;
+      }
+
+      div:hover i,
+      div:hover span {
+        color: var(--color-orange);
+      }
+
+      span {
+        color: var(--text-hell);
+        font-size: 0.8rem;
+        margin-right: 40px;
+        cursor: pointer;
+      }
+
+      i {
+        padding-right: 8px;
+        margin-left: 20px;
+        color: var(--text-hell);
+        font-size: 1.2rem;
+        cursor: pointer;
+      }
+
+      i:hover {
+        color: var(--color-orange);
+      }
+
+      .cartItem a i span {
+        padding-left: 5px;
+        font-weight: 400;
+        font-size: 0.6rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  header {
+    nav {
+      flex-wrap: wrap;
+
+      .navbarCenter {
+        justify-content: end;
+        margin-right: 0;
+        text-align: end;
+
+        .searchInput {
+          width: 100%;
+        }
+      }
+
+      .navbarRight {
+        width: 100%;
+        justify-content: end;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  header {
+    nav {
+      padding-left: 0;
+      display: flex;
+      flex-direction: column;
+
+      .navbarLeft {
+        width: 100%;
+      }
+      .navbarCenter {
+        width: 95%;
+        .searchInput {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

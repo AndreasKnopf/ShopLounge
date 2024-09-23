@@ -1,0 +1,31 @@
+.homeWrapper {
+  .homeBanner {
+    height: auto;
+    margin: 40px;
+    padding: 20px;
+    border: 6px solid var(--color-orange);
+    border-radius: 30px;
+    background-color: var(--hg-orange);
+
+    h1 {
+      text-align: center;
+      padding-bottom: 60px;
+      text-decoration: underline;
+      text-underline-offset: 5px;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      color: var(--hg-grau);
+    }
+  }
+
+  .productWrapper {
+    margin: 40px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 20px;
+    text-align: center;
+  }
+}

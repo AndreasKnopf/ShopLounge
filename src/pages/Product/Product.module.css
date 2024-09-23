@@ -1,0 +1,145 @@
+.productDetail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  min-height: 70vh;
+
+  .imageWrapper {
+    outline: 1px solid var(--hg-grau);
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 800px;
+
+    img {
+      height: 50%;
+      object-fit: contain;
+      padding: 20px;
+      cursor: pointer;
+    }
+  }
+
+  .productInfo {
+    width: 70%;
+    padding: 0 60px;
+    position: relative;
+
+    .returnButton {
+      position: absolute;
+      background-color: white;
+      margin: 0;
+      padding: 0;
+      top: -20px;
+      right: 70px;
+      font-size: 1rem;
+      color: var(--hg-grau);
+      font-weight: bold;
+
+      i {
+        margin: 0;
+        padding: 4px;
+      }
+    }
+
+    .returnButton:hover {
+      background-color: white;
+      color: var(--color-orange);
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      padding: 8px;
+      height: auto;
+      background-color: var(--hg-grau);
+      color: var(--color-orange);
+      border-radius: 5px;
+    }
+
+    .price {
+      color: var(--color-orange);
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    button {
+      background-color: var(--color-orange);
+      color: var(--text-dunkel);
+      border: none;
+      padding: 8px 15px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      font-size: 0.8rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: var(--hover-orange);
+    }
+  }
+
+  .fullscreen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+
+    .fullscreenContent {
+      position: relative;
+
+      .fullscreenImage {
+        max-width: 100%;
+        max-height: 100%;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+      }
+
+      .close {
+        position: absolute;
+        top: 0px;
+        right: -40px;
+        color: var(--text-hell);
+        font-size: 2rem;
+        cursor: pointer;
+        transition: color 0.3s ease;
+      }
+
+      .close:hover {
+        color: var(--color-orange);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .productDetail {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .imageWrapper {
+      width: 100%;
+    }
+
+    .productInfo {
+      font-size: clamp(1rem, 2vw, 1.5rem);
+      position: inherit;
+
+      .returnButton {
+        margin-left: auto;
+        display: block;
+        position: inherit;
+        margin-top: 20px;
+        left: 10px;
+      }
+    }
+  }
+}

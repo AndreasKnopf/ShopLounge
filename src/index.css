@@ -1,0 +1,26 @@
+@import "normalize.css";
+@font-face {
+  font-family: "SUSE";
+  src: url("./assets/fonts/SUSE-Regular.ttf");
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --hg-grau: #343434;
+  --hg-orange: #fff2da;
+  --color-orange: #ffa600;
+  --hover-orange: #ff8800;
+  --text-dunkel: black;
+  --text-hell: white;
+}
+
+body {
+  font-family: "SUSE", Verdana, sans-serif;
+  overflow-x: hidden;
+  margin-top: 140px;
+}

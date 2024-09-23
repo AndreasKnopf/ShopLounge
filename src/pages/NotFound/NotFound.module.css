@@ -1,0 +1,9 @@
+.notFound {
+  text-align: center;
+  h1 {
+    color: red;
+  }
+  div img {
+    width: 100%;
+  }
+}
