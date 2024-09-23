@@ -66,6 +66,48 @@ header {
       align-items: center;
       text-wrap: nowrap;
 
+      .loginItem {
+        display: flex;
+        .userMenu {
+          position: relative;
+          display: inline-block;
+
+          .dropdownMenu {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: 170%;
+            left: 0;
+            height: 50px;
+            width: 150px;
+            border: 1px solid var(--hg-grau);
+            border-radius: 10px;
+            background-color: var(--hg-orange);
+
+            button {
+              text-align: center;
+              font-size: 0.6rem;
+              height: 30px;
+            }
+          }
+        }
+        button {
+          background-color: var(--color-orange);
+          color: var(--text-dunkel);
+          border: none;
+          padding: 8px 15px;
+          margin: 0;
+          border-radius: 10px;
+          font-size: 0.8rem;
+          cursor: pointer;
+        }
+
+        button:hover {
+          background-color: var(--hover-orange);
+        }
+      }
+
       div {
         display: flex;
         align-items: end;

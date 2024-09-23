@@ -1,0 +1,74 @@
+.loginWrapper {
+  min-height: 770px;
+
+  .loginBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-bottom: 60px;
+    width: 400px;
+    border: 1px solid var(--hg-grau);
+    border-radius: 10px;
+
+    h2 {
+      color: var(--color-orange);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 90%;
+      margin-bottom: 50px;
+
+      label {
+        display: flex;
+        margin: 5px 0;
+      }
+
+      input {
+        width: 100%;
+        border-radius: 4px;
+        border: 1px solid var(--hg-grau);
+        height: 25px;
+      }
+
+      input:hover {
+        border: 2px solid var(--color-orange);
+      }
+    }
+
+    button {
+      width: 150px;
+      margin: auto;
+      margin-top: 40px;
+      background-color: var(--color-orange);
+      color: var(--text-dunkel);
+      border: none;
+      padding: 8px 15px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      font-size: 0.8rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: var(--hover-orange);
+    }
+
+    .regiBox {
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      border-top: 1px solid var(--hg-grau);
+      padding-top: 50px;
+
+      button {
+        margin-top: 15px;
+      }
+    }
+  }
+}

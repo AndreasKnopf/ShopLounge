@@ -1,12 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { CartContext } from "../../context/CartContext";
+import { UserContext } from "../../context/UserContext";
 import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
 
 export default function Header() {
   const { cartItems } = useContext(CartContext);
+  const { loggedInUser, logoutUser } = useContext(UserContext);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
 
   return (
     <header>
@@ -22,10 +29,22 @@ export default function Header() {
         </div>
         <div className={styles.navbarRight}>
           <div className={styles.loginItem}>
-            <Link to="/login">
-              <i className="fa-solid fa-user"></i>
-              <span>Anmelden</span>
-            </Link>
+            {loggedInUser ? (
+              <div className={styles.userMenu} onClick={toggleDropdown}>
+                <i className="fa-solid fa-user"></i>
+                <span>Hallo, {loggedInUser.firstName}</span>
+                {isDropdownOpen && (
+                  <div className={styles.dropdownMenu}>
+                    <button onClick={logoutUser}>Abmelden</button>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Link to="/login">
+                <i className="fa-solid fa-user"></i>
+                <span>Anmelden</span>
+              </Link>
+            )}
           </div>
           <i className="fa-solid fa-heart"></i>
           <div className={styles.cartItem}>

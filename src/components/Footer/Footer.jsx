@@ -39,7 +39,7 @@ export default function Footer() {
             </li>
             <li>
               <Link to="https://twitter.com" target="_blank">
-                <i class="fa-brands fa-x-twitter"></i>
+                <i className="fa-brands fa-x-twitter"></i>
               </Link>
             </li>
             <li>
