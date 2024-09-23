@@ -44,6 +44,7 @@ export default function Product() {
         <p>Format: {product.size}</p>
         <p className={styles.price}>Preis: {product.price} €</p>
         <p>{product.description}</p>
+
         <button onClick={() => addToCart(product)}>Zum Warenkorb hinzufügen</button>
       </div>
 

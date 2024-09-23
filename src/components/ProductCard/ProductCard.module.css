@@ -55,4 +55,8 @@
   button:hover {
     background-color: var(--hover-orange);
   }
+
+  .favouritesIcon {
+    cursor: pointer;
+  }
 }

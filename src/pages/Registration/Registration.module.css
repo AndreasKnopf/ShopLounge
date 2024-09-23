@@ -1,5 +1,5 @@
 .registrationWrapper {
-  min-height: 770px;
+  min-height: 65vh;
 
   .registrationBox {
     display: flex;

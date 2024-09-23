@@ -1,14 +1,14 @@
 .cartEmpty {
-  margin-top: 80px;
+  /* margin-top: 80px; */
   text-align: center;
-  min-height: 60vh;
+  min-height: 63vh;
   font-size: 2rem;
   font-weight: bold;
   color: var(--color-orange);
 }
 
 .cartWrapper {
-  padding: 20px;
+  padding: 0 20px;
   display: flex;
   flex-direction: column;
 
@@ -22,7 +22,7 @@
 
     .cartItem {
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       align-items: center;
       margin-bottom: 20px;
       padding: 20px;

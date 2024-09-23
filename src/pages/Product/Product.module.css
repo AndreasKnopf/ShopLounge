@@ -3,7 +3,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  min-height: 70vh;
+  min-height: 65vh;
+  margin-bottom: 50px;
 
   .imageWrapper {
     outline: 1px solid var(--hg-grau);

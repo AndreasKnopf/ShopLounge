@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ProductProvider } from "./context/ProductContext";
 import { UserProvider } from "./context/UserContext";
 import { CartProvider } from "./context/CartContext";
+import { FavouritesProvider } from "./context/FavouritesContext";
 import Home from "./pages/Home/Home";
 import Product from "./pages/Product/Product";
 import Login from "./pages/Login/Login";
@@ -20,20 +21,22 @@ function App() {
       <ProductProvider>
         <UserProvider>
           <CartProvider>
-            <Header />
-            <main>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/product/:itemNumber" element={<Product />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/registration" element={<Registration />} />
-                <Route path="/favourites" element={<Favourites />} />
-                <Route path="/cart" element={<Cart />} />
-                <Route path="/checkout" element={<Checkout />} />
-                <Route path="/*" element={<NotFound />} />
-              </Routes>
-            </main>
-            <Footer />
+            <FavouritesProvider>
+              <Header />
+              <main>
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/product/:itemNumber" element={<Product />} />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/registration" element={<Registration />} />
+                  <Route path="/favourites" element={<Favourites />} />
+                  <Route path="/cart" element={<Cart />} />
+                  <Route path="/checkout" element={<Checkout />} />
+                  <Route path="/*" element={<NotFound />} />
+                </Routes>
+              </main>
+              <Footer />
+            </FavouritesProvider>
           </CartProvider>
         </UserProvider>
       </ProductProvider>

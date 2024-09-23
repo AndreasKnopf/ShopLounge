@@ -23,4 +23,9 @@ body {
   font-family: "SUSE", Verdana, sans-serif;
   overflow-x: hidden;
   margin-top: 140px;
+  min-height: 100%;
+}
+
+main {
+  flex: 1;
 }

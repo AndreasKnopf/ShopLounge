@@ -1,6 +1,6 @@
 .checkoutWrapper {
   text-align: center;
-  min-height: 770px;
+  min-height: 65vh;
 
   h2 {
     color: var(--color-orange);

@@ -20,7 +20,7 @@ export default function Header() {
       <nav>
         <div className={styles.navbarLeft}>
           <Link to="/">
-            <i className="fa-brands fa-shopify"></i>Shop Lounge
+            <i className="fa-regular fa-image"></i>Shop Lounge
           </Link>
         </div>
         <div className={styles.navbarCenter}>
@@ -46,7 +46,9 @@ export default function Header() {
               </Link>
             )}
           </div>
-          <i className="fa-solid fa-heart"></i>
+          <Link to="/favourites">
+            <i className="fa-solid fa-heart"></i>
+          </Link>
           <div className={styles.cartItem}>
             <Link to="/cart">
               <i className="fa-solid fa-cart-shopping">

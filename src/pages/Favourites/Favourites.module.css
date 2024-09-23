@@ -1,0 +1,22 @@
+.favouritesPage {
+  min-height: 65vh;
+
+  h2 {
+    text-align: center;
+    color: var(--color-orange);
+    font-size: 2rem;
+  }
+  .productWrapper {
+    margin: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .productWrapper {
+    justify-content: space-around;
+  }
+}
