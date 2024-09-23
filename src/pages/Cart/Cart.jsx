@@ -1,10 +1,14 @@
 import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
+import { UserContext } from "../../context/UserContext";
 import styles from "./Cart.module.css";
 import CartSummary from "../../components/CartSummary/CartSummary.jsx";
 
 export default function Cart() {
-  const { cartItems, addToCart, removeFromCart, removeProduct } = useContext(CartContext);
+  const { cartItems, setCartItems, addToCart, removeFromCart, removeProduct } = useContext(CartContext);
+  const { loggedInUser } = useContext(UserContext);
+  const navigate = useNavigate();
 
   const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
@@ -14,10 +18,20 @@ export default function Cart() {
     return <p className={styles.cartEmpty}>Ihr Warenkorb ist leer.</p>;
   }
 
+  const handleCheckout = () => {
+    if (loggedInUser) {
+      setCartItems([]);
+      localStorage.removeItem("cartItems");
+      navigate("/checkout");
+    } else {
+      navigate("/login");
+    }
+  };
+
   return (
     <div className={styles.cartWrapper}>
       <h1>Warenkorb</h1>
-      <CartSummary totalItems={totalItems} totalPrice={totalPrice} />
+      <CartSummary totalItems={totalItems} totalPrice={totalPrice} handleCheckout={handleCheckout} />
       <div className={styles.cartItems}>
         {cartItems.map((item) => (
           <div key={item.itemNumber} className={styles.cartItem}>
