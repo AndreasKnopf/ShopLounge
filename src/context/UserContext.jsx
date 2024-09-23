@@ -4,15 +4,19 @@ import { users } from "../data/userData.js";
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-  const [userList, setUserList] = useState([]);
+  const [userList, setUserList] = useState(() => {
+    const savedUsers = localStorage.getItem("users");
+    return savedUsers ? JSON.parse(savedUsers) : users;
+  });
+
   const [loggedInUser, setLoggedInUser] = useState(() => {
-    const saveLocalStorageUser = localStorage.getItem("loggedInUser");
-    return saveLocalStorageUser ? JSON.parse(saveLocalStorageUser) : null;
+    const savedLocalStorageUser = localStorage.getItem("loggedInUser");
+    return savedLocalStorageUser ? JSON.parse(savedLocalStorageUser) : null;
   });
 
   useEffect(() => {
-    setUserList(users);
-  }, []);
+    localStorage.setItem("users", JSON.stringify(userList));
+  }, [userList]);
 
   const loginUser = (email, password) => {
     const user = userList.find((u) => u.email === email && u.password === password);
@@ -30,7 +34,26 @@ export const UserProvider = ({ children }) => {
     localStorage.removeItem("loggedInUser");
   };
 
+  const registerUser = (newUser) => {
+    const existingUser = userList.find((u) => u.email === newUser.email);
+    if (existingUser) {
+      return false;
+    }
+
+    const nextId = userList.length > 0 ? Math.max(...userList.map((u) => u.id)) + 1 : 1;
+    const userWithId = { ...newUser, id: nextId };
+
+    const updatedUserList = [...userList, userWithId];
+    setUserList(updatedUserList);
+    setLoggedInUser(userWithId);
+    localStorage.setItem("loggedInUser", JSON.stringify(userWithId));
+
+    return true;
+  };
+
   return (
-    <UserContext.Provider value={{ userList, loggedInUser, loginUser, logoutUser }}>{children}</UserContext.Provider>
+    <UserContext.Provider value={{ userList, loggedInUser, loginUser, logoutUser, registerUser }}>
+      {children}
+    </UserContext.Provider>
   );
 };
