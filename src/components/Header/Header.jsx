@@ -52,7 +52,11 @@ export default function Header() {
           <div className={styles.cartItem}>
             <Link to="/cart">
               <i className="fa-solid fa-cart-shopping">
-                {totalItems > 0 && <span className={styles.cartCount}>( {totalItems} )</span>}
+                {totalItems > 0 ? (
+                  <span className={styles.cartCountLight}>({totalItems})</span>
+                ) : (
+                  <span className={styles.cartCountDark}>({totalItems})</span>
+                )}
               </i>
             </Link>
           </div>

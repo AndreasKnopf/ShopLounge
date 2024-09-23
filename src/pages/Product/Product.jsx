@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { ProductContext } from "../../context/ProductContext";
+import { FavouritesContext } from "../../context/FavouritesContext";
 import { CartContext } from "../../context/CartContext";
 import styles from "./Product.module.css";
 
@@ -8,6 +9,7 @@ export default function Product() {
   const { itemNumber } = useParams();
   const { products } = useContext(ProductContext);
   const { addToCart } = useContext(CartContext);
+  const { favourites, addFavourite, removeFavourite } = useContext(FavouritesContext);
   const product = products.find((product) => product.itemNumber === parseInt(itemNumber));
   const navigate = useNavigate();
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -27,6 +29,16 @@ export default function Product() {
     setIsFullscreen(false);
   };
 
+  const isFavourite = favourites.some((fav) => fav.itemNumber === product.itemNumber);
+
+  const toggleFavourite = () => {
+    if (isFavourite) {
+      removeFavourite(product.itemNumber);
+    } else {
+      addFavourite(product);
+    }
+  };
+
   return (
     <div className={styles.productDetail}>
       <div className={styles.imageWrapper}>
@@ -44,7 +56,11 @@ export default function Product() {
         <p>Format: {product.size}</p>
         <p className={styles.price}>Preis: {product.price} €</p>
         <p>{product.description}</p>
-
+        <i
+          className={`fa-heart ${isFavourite ? "fa-solid" : "fa-regular"} ${styles.favouritesIcon}`}
+          onClick={toggleFavourite}
+          style={{ color: isFavourite ? "var(--color-orange)" : "var(--hg-grau)" }}
+        ></i>
         <button onClick={() => addToCart(product)}>Zum Warenkorb hinzufügen</button>
       </div>
 
