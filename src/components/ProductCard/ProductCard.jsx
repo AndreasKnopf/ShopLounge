@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import { FavouritesContext } from "../../context/FavouritesContext";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import styles from "./ProductCard.module.css";
 
 export default function ProductCard({ product }) {
@@ -35,11 +36,14 @@ export default function ProductCard({ product }) {
   return (
     <div className={styles.productCard}>
       <div className={styles.imageBox} onClick={handleClick}>
-        <img
+        <motion.img
           src={currentImage}
           alt={product.productName}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
+          initial={{ scale: 0.9 }}
+          whileHover={{ scale: 1 }}
+          transition={{ duration: 0.5 }}
         />
       </div>
       <div className={styles.title}>

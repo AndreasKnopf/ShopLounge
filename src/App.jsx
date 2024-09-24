@@ -11,6 +11,7 @@ import Product from "./pages/Product/Product";
 import Login from "./pages/Login/Login";
 import Registration from "./pages/Registration/Registration";
 import Favourites from "./pages/Favourites/Favourites";
+import Filter from "./pages/Filter/Filter";
 import Cart from "./pages/Cart/Cart";
 import Checkout from "./pages/Checkout/Checkout";
 import NotFound from "./pages/NotFound/NotFound";
@@ -30,6 +31,7 @@ function App() {
                   <Route path="/login" element={<Login />} />
                   <Route path="/registration" element={<Registration />} />
                   <Route path="/favourites" element={<Favourites />} />
+                  <Route path="/filter" element={<Filter />} />
                   <Route path="/cart" element={<Cart />} />
                   <Route path="/checkout" element={<Checkout />} />
                   <Route path="/*" element={<NotFound />} />

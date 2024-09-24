@@ -4,6 +4,7 @@ export const ProductContext = createContext();
 
 export const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -28,5 +29,9 @@ export const ProductProvider = ({ children }) => {
       </div>
     );
   }
-  return <ProductContext.Provider value={{ products, setProducts }}>{children}</ProductContext.Provider>;
+  return (
+    <ProductContext.Provider value={{ products, setProducts, filteredProducts, setFilteredProducts }}>
+      {children}
+    </ProductContext.Provider>
+  );
 };

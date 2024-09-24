@@ -22,10 +22,10 @@ export default function Footer() {
         </div>
         <div className={styles.footerContent}>
           <h3>Quick Links</h3>
-          <Link to="" className={styles.impressum}>
+          <Link to="/NotFound" className={styles.impressum}>
             Datenschutz
           </Link>
-          <Link to="" className={styles.impressum}>
+          <Link to="/NotFound" className={styles.impressum}>
             Impressum
           </Link>
         </div>

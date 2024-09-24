@@ -1,4 +1,5 @@
 header {
+  width: 100%;
   position: fixed;
   top: 0;
 
@@ -6,68 +7,79 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
     padding: 10px 40px;
-    width: 100vw;
     min-height: 80px;
     background-color: var(--hg-grau);
 
     .navbarLeft {
-      width: 30vw;
       a {
+        color: var(--text-hell);
+        font-size: 1.3rem;
         text-decoration: none;
         text-transform: uppercase;
-        font-size: 1.3rem;
-        color: var(--text-hell);
-
+        cursor: pointer;
         i {
-          padding: 8px;
+          width: 40px;
           font-size: 2rem;
         }
-      }
-      a:hover {
-        color: var(--color-orange);
       }
     }
 
     .navbarCenter {
-      margin: 0 30px;
-      width: 50vw;
-      display: flex;
-      align-items: center;
-      flex-wrap: nowrap;
-      text-align: center;
-
-      .searchInput {
-        margin: 8px;
-        padding: 0 10px;
-        width: 80%;
-        height: 30px;
-        border: none;
-        border-radius: 5px;
+      form {
+        display: flex;
+        input {
+          width: 500px;
+          padding: 5px 10px;
+          border-radius: 10px;
+          border: 2px solid var(--hg-grau);
+        }
+        button {
+          color: var(--text-hell);
+          background-color: var(--hg-grau);
+          outline: none;
+          border: none;
+          font-size: 1.2rem;
+          cursor: pointer;
+        }
       }
 
-      i {
-        color: var(--text-hell);
-        font-size: 1.2rem;
+      form:hover input {
+        border: 2px solid var(--color-orange);
       }
-    }
-
-    .navbarCenter:hover .searchInput {
-      outline: 2px solid var(--color-orange);
-    }
-
-    .navbarCenter:hover i {
-      color: var(--color-orange);
+      form:hover button {
+        color: var(--color-orange);
+      }
     }
 
     .navbarRight {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      text-wrap: nowrap;
+
+      i {
+        font-size: 1.3rem;
+      }
+
+      i:hover {
+        color: var(--color-orange);
+      }
 
       .loginItem {
-        display: flex;
+        margin-right: 15px;
+        padding: 0 10px;
+        cursor: pointer;
+
+        i {
+          width: 25px;
+          color: var(--text-hell);
+        }
+
+        span {
+          font-size: 0.8rem;
+          color: var(--text-hell);
+        }
+
         .userMenu {
           position: relative;
           display: inline-block;
@@ -86,60 +98,30 @@ header {
             background-color: var(--hg-orange);
 
             button {
-              text-align: center;
-              font-size: 0.6rem;
-              height: 30px;
+              background-color: var(--color-orange);
+              color: var(--text-dunkel);
+              border: none;
+              padding: 8px 15px;
+              margin: 0;
+              border-radius: 10px;
+              font-size: 0.8rem;
+              cursor: pointer;
+            }
+
+            button:hover {
+              background-color: var(--hover-orange);
             }
           }
         }
-        button {
-          background-color: var(--color-orange);
-          color: var(--text-dunkel);
-          border: none;
-          padding: 8px 15px;
-          margin: 0;
-          border-radius: 10px;
-          font-size: 0.8rem;
-          cursor: pointer;
-        }
-
-        button:hover {
-          background-color: var(--hover-orange);
-        }
       }
 
-      div {
-        display: flex;
-        align-items: end;
-        flex-wrap: nowrap;
-      }
-
-      div:hover i,
-      div:hover span {
+      .loginItem:hover i,
+      .loginItem:hover span {
         color: var(--color-orange);
       }
 
-      span {
-        color: var(--text-hell);
-        font-size: 0.8rem;
-        margin-right: 40px;
-        cursor: pointer;
-      }
-
-      i {
-        padding-right: 8px;
-        margin-left: 20px;
-        color: var(--text-hell);
-        font-size: 1.2rem;
-        cursor: pointer;
-      }
-
-      i:hover {
-        color: var(--color-orange);
-      }
-
-      .cartItem a i {
-        padding-right: 30px;
+      .cartItem {
+        margin-left: 15px;
 
         .cartCountDark {
           padding-right: 0;
@@ -157,52 +139,25 @@ header {
           color: var(--text-hell);
         }
       }
-
       .cartItem:hover a i .cartCountLight {
         color: var(--color-orange);
       }
     }
-  }
-}
 
-@media screen and (max-width: 900px) {
-  header {
-    nav {
-      flex-wrap: wrap;
-
-      .navbarCenter {
-        justify-content: end;
-        margin-right: 0;
-        text-align: end;
-
-        .searchInput {
-          width: 100%;
-        }
+    @media screen and (max-width: 1078px) {
+      .navbarCenter input {
+        width: 50%;
       }
-
       .navbarRight {
+        justify-content: flex-end;
         width: 100%;
-        justify-content: end;
+        /* outline: 3px solid red; */
       }
     }
-  }
-}
 
-@media screen and (max-width: 650px) {
-  header {
-    nav {
-      padding-left: 0;
-      display: flex;
-      flex-direction: column;
-
-      .navbarLeft {
-        width: 100%;
-      }
+    @media screen and (max-width: 644px) {
       .navbarCenter {
-        width: 95%;
-        .searchInput {
-          width: 100%;
-        }
+        width: 100%;
       }
     }
   }

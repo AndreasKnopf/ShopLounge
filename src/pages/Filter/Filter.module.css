@@ -1,0 +1,18 @@
+.filterWrapper {
+  min-height: 65vh;
+
+  h2 {
+    font-size: 2rem;
+    text-align: center;
+    color: var(--color-orange);
+  }
+
+  .productWrapper {
+    margin: 40px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+    text-align: center;
+  }
+}

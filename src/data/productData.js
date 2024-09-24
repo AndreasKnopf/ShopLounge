@@ -115,6 +115,7 @@ export const products = [
       "Schneeketten",
       "Winter",
       "Fahrzeug",
+      "Car",
     ],
   },
   {
